@@ -127,6 +127,24 @@ body {
 /**
  * App code
  */
+// Header
+.container {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+.header {
+
+    a {
+       text-decoration: none;
+        padding: 10px;
+        margin: 50px;
+        color: white;
+        background: blue;
+    }
+}
+
 
  .searchView {
 

@@ -40,6 +40,8 @@ import Firebase from 'firebase'
 import Header from './header.js'
 import SearchView from './searchView.js'
 import HomeView from './homeView.js'
+import BallotView from './ballotView.js'
+
 
 function app() {
     // start app
@@ -62,6 +64,7 @@ function app() {
     		"home": "showHomeView",
     		'search': "showSearchView",
     		"search/:query": "searchFor",
+    		"ballot": "showBallotView",
     		"*default": "showHomeView"
     	},
 
@@ -89,6 +92,10 @@ function app() {
     		}).then(function(){
     			DOM.render(<SearchView searchColl={sc}/>, document.querySelector('.container'))
     		})    		
+    	},
+
+    	showBallotView: function() {
+    		DOM.render(<BallotView />, document.querySelector('.container'))
     	},
 
     	initialize: function() {

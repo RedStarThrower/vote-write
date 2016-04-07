@@ -75,7 +75,7 @@ var SearchView = React.createClass({
     		return(
     			<div className="searchResult">
     				<strong><p className="searchTitle">{searchModel.get('title')}</p></strong>
-    				<p className="searchSnippet">{searchModel.get('snippet')}</p>
+    				<p className="searchSnippet">Article snippet: {searchModel.get('snippet')}...</p>
     				<img src={searchModel.get('image').thumbnailLink} />
     				<a href={searchModel.get('link')}>{searchModel.get('displayLink')}</a>
     				<hr></hr>
