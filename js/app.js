@@ -35,11 +35,68 @@ import fetch from "isomorphic-fetch"
 
 import DOM from 'react-dom'
 import React, {Component} from 'react'
+import Backbone from 'bbfire'
+import Firebase from 'firebase'
+import Header from './header.js'
+import SearchView from './searchView.js'
+import HomeView from './homeView.js'
 
 function app() {
     // start app
     // new Router()
-    DOM.render(<p>test 2</p>, document.querySelector('.container'))
+  
+    var SearchCollection = Backbone.Collection.extend ({
+    	_apiKey: "AIzaSyAbOYKwsLQ-qU8SI2A7MFKMY7bCZ4cK7m4",
+    	url: "https://www.googleapis.com/customsearch/v1?",
+
+    	parse: function(rawJSON) {
+    		//console.log(rawJSON)
+    		return rawJSON.items
+    		
+    	}
+    })    
+
+    var AppRouter = Backbone.Router.extend ({
+
+    	routes: {
+    		"home": "showHomeView",
+    		'search': "showSearchView",
+    		"search/:query": "searchFor",
+    		"*default": "showHomeView"
+    	},
+
+    	showHomeView: function() {
+    		var sc = new SearchCollection()
+    		DOM.render(<HomeView />, document.querySelector('.container'))
+    	},
+
+    	showSearchView: function() {
+    		var sc = new SearchCollection()
+    		DOM.render(<SearchView searchColl={sc}/>, document.querySelector('.container'))
+    	},
+
+    	searchFor: function(query) {
+    		var sc = new SearchCollection()
+    		sc.fetch({
+    			data: {
+       				output: "json",
+ 					cx: "015739195413953031624:f7gnodx282i",
+  					q: query,
+  					searchType: "image",
+   					key: sc._apiKey
+
+    			}
+    		}).then(function(){
+    			DOM.render(<SearchView searchColl={sc}/>, document.querySelector('.container'))
+    		})    		
+    	},
+
+    	initialize: function() {
+       		Backbone.history.start()
+    	}
+    })
+
+    var rtr = new AppRouter()
 }
 
 app()
