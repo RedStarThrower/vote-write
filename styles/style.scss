@@ -235,7 +235,8 @@ body {
  .ballotView {
 
     p {
-        margin-bottom: 20px;
+        margin-top: 10px;
+        margin-bottom: 10px;
         font-weight: bold;
     }
 
@@ -310,6 +311,8 @@ body {
 
     .interBlurb {
         font-weight: bold;
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
 
     button {
@@ -407,17 +410,18 @@ body {
 }
 }
 
-@media only screen and (max-width: 300px) {
-    .ballotView {
+@media only screen and (max-width: 320px) {
+     .ballotView {
             width: 95%;
             margin: auto;
 
-            iframe {
+            iframe[seamless] {
                 width: 95%;
                 margin: auto;
             }
  
         }
 }
+
 
 
