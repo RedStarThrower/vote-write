@@ -164,7 +164,7 @@ body {
 
             h3 {            
             padding-top: 25px;
-            padding-left: 10px;
+            padding-left: 15px;
             vertical-align: baseline;
             line-height: 30px;
             color: #353535;
@@ -210,21 +210,23 @@ body {
 //HomeView 
 
 .homeView {
-
-    .column {        
+      
 
         .leftCol {
             width: 48%;
             display: inline-block;
             vertical-align: top;
+            padding-right: 5px;
+            // border-right: 2px solid #CFCBC8;
         }
 
         .rightCol {
             width: 50%;
             display: inline-block;
             vertical-align: top;
+            overflow: scroll;    
+
         }
-    }
 
 }
 
@@ -232,8 +234,19 @@ body {
 
  .ballotView {
 
+    p {
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+
+    button {
+        margin: 5px;
+        background-color:  #75797c;
+        color: white;
+    }
+
     iframe {
-        height: 55vh;
+        height: 65vh;
         width: 100%;
         border: 3px solid #CFCBC8;
     }
@@ -242,45 +255,85 @@ body {
 
 // Search View
  .searchView {
+    border: 2px solid #CFCBC8;
+    width: 90%;
+    margin: auto;
+    height: 65vh;
+    overflow: scroll;
+    background-color: white;
+
+    .searchBlurb {
+        font-weight: bold;
+        padding-top: 10px;
+    }
 
     input {
         length: 25%;
         font-size: 15px;
         padding: 5px;
+        border: 1px solid #CFCBC8;
     }
+
+    .scroll {
+        margin-top: 20px;
+        padding-right: 20px;
+        padding-left: 10px;
+
+
+    }
+
+    hr {
+        padding-right: 5px;
+    }
+    
  }
 
  //Interact View
 
  .interactView {
 
-    border-left: 1px solid #CFCBC8;
     width: 98%;
     margin-left: 10px;
-    height: 75vh;
 
-    .intmenu {
-        margin: 10px;
-        background-color:#75797c;
-        color: white;
-        padding: 7px; 
-        text-decoration: none;
-        margin-bottom: 30px;
+    .interBlurb {
+        font-weight: bold;
     }
 
-    .leaderView {
-        width: 40%;
+    button {
+        margin: 5px;
+        background-color:  #75797c;
+        color: white;
+    }
+
+    .interactContent {
+        width: 80%;
         margin: auto;
+        margin-top: 5px;
+    }
+
+    .searchResult {
         margin-top: 10px;
 
         p {
-            margin: 0;
-            font-weight: bold;
+            display: inline-block;
         }
-
     }
  }
 
+ // Leader View
+ .leaderView {
+    border: 2px solid #CFCBC8;
+    width: 93%;
+    margin: auto;
+    overflow: scroll;
+    background-color: white;
+
+
+    .leaderBlurb {
+        font-weight: bold;
+        padding-top: 10px;
+    }
+ }
 
 
  //Mobile Styles
@@ -289,18 +342,16 @@ body {
 
     .homeView {
 
-        .column {
-            display: block;
-
             .leftCol {
                 width: 100%;
+                display: block;
             }
 
              .rightCol {
                 width: 100%;
+                display: block;
+                overflow: scroll;
             }
-
-        }
         
     }
 

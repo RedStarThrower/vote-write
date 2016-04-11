@@ -10,18 +10,15 @@ import SearchView from './searchView.js'
 var HomeView = React.createClass({
 
 	render: function() {
-
 		return(
 			<div className="homeView"> 
 				<Header />				
-				<div className="column">
 					<div className="leftCol">
 						<BallotView/>
 					</div>
 					<div className="rightCol">
 						<InteractView />
 					</div>
-				</div>
 				<Footer />
 			</div>
 		)

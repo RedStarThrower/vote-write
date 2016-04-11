@@ -1,5 +1,29 @@
 import React, {Component} from 'react'
-import Header from './header.js'
+import Header from "./header.js"
+import BallotView from './ballotView.js'
+import InteractView from './interactView.js'
+import Footer from './footer.js'
+
+
+var SearchContainer = React.createClass ({
+
+	render: function() {
+		return(
+			<div className="homeView"> 
+				<Header />				
+					<div className="leftCol">
+						<BallotView/>
+					</div>
+					<div className="rightCol">
+						<InteractView />
+						<SearchView searchColl={this.props.searchColl} />
+					</div>
+				<Footer />
+			</div>
+		)
+	}
+})
+
 
 var SearchView = React.createClass({
 
@@ -14,6 +38,7 @@ var SearchView = React.createClass({
 
     	render: function() {
     		//console.log(this.props.searchColl)
+
     		return (
     			<div className="searchView">
     				<SearchBar />
@@ -23,21 +48,21 @@ var SearchView = React.createClass({
     	}
     })
 
-	
     var SearchBar = React.createClass({
 
     	_search: function(e) {
     		if (e.keyCode === 13) {
     			var query = e.target.value
     			//console.log(query) 
-      			location.hash = `search/${query}`   			
+      			location.hash = `home/search/${query}`   			
     		}
     	},
 
        	render: function() {
        		return (    			
     			<div className="searchContainer">
-    				<input onKeyDown={this._search} placeholder="Search Google..."/>	
+    				<p className="searchBlurb">For a custom search, type name/issue and press "Enter"</p>
+    				<input onKeyDown={this._search} placeholder="Search Google..."/>
        			</div>
        		)
     	}
@@ -69,17 +94,15 @@ var SearchView = React.createClass({
 
     	render: function() {    		
     		var searchModel = this.props.search_result
-    		console.log(searchModel)
+    		//console.log(searchModel)
     		return(
     			<div className="searchResult">
-    				<strong><p className="searchTitle">{searchModel.get('title')}</p></strong>
-    				<p className="searchSnippet">Article snippet: {searchModel.get('snippet')}...</p>
-    				{/*<img src={searchModel.get('image').thumbnailLink} />*/}
-    				<a target="_blank" href={searchModel.get('link')}> {searchModel.get('displayLink')}</a>
-    				<hr></hr>
+    			<hr></hr>
+    				<strong><p className="searchTitle">Article Title: {searchModel.get('title')}</p></strong>
+    				<p className="searchSnippet">Article snippet: "{searchModel.get('snippet')}..." Read more: <a target="_blank" href={searchModel.get('link')}>{searchModel.get('displayLink')}</a></p>
     			</div>
     		)
     	}
     })
 
-    export default SearchView
+    export default SearchContainer

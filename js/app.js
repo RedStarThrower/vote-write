@@ -38,10 +38,11 @@ import React, {Component} from 'react'
 import Backbone from 'bbfire'
 import Firebase from 'firebase'
 import Header from './header.js'
-import SearchView from './searchView.js'
+import SearchContainer from './searchView.js'
 import HomeView from './homeView.js'
 import BallotView from './ballotView.js'
 import InteractView from './interactView.js'
+import LeaderContainer from './leaderView.js'
 import Footer from './footer.js'
 
 
@@ -64,24 +65,24 @@ function app() {
 
     	routes: {
     		"home": "showHomeView",
-    		"home/viewType/search": "showSearchView",
-    		"home/viewType/leaders": "showLeaderView",
-    		"search/:query": "searchFor",
-    		"*default": "showHomeView"
+    		"home/search": "showSearchView",
+    		"home/search/:query": "searchFor",
+    		"home/leaders": "showLeaderView",
+    		"*default": "showSearchView"
     	},
 
     	showHomeView: function() {
     		var sc = new SearchCollection()
-    		DOM.render(<HomeView />, document.querySelector('.container'))
+    		DOM.render(<HomeView searchColl={sc}/>, document.querySelector('.container'))
     	},
 
     	showSearchView: function() {
     		var sc = new SearchCollection()
-    		DOM.render(<SearchView searchColl={sc}/>, document.querySelector('.container'))
+    		DOM.render(<SearchContainer searchColl={sc}/>, document.querySelector('.container'))
     	},
 
     	showLeaderView: function() {
-    		DOM.render(<InteractView/>, document.querySelector('.container'))
+    		DOM.render(<LeaderContainer/>, document.querySelector('.container'))
     	},
 
     	searchFor: function(query) {
@@ -95,7 +96,7 @@ function app() {
 
     			}
     		}).then(function(){
-    			DOM.render(<SearchView searchColl={sc}/>, document.querySelector('.container'))
+    			DOM.render(<SearchContainer searchColl={sc}/>, document.querySelector('.container'))
     		})    		
     	},
 
