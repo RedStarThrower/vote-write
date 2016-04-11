@@ -33,8 +33,10 @@ var BallotView = React.createClass({
 				<p>Step 1. View the ballot for the upcoming election:</p>	
 				<button onClick={this._handleMay7}>Sample Ballot May 7 (municipal)</button>
 				<button onClick={this._handleMay24D}>Sample Ballot May 24 (D)</button>
-				<button onClick={this._handleMay24R}>Sample Ballot May 24 (R)</button>		
+				<button onClick={this._handleMay24R}>Sample Ballot May 24 (R)</button>	
+				<div className="frameWrap">
 				<iframe seamless src={this.state.source} title="sample_ballot" scrolling="auto" allowFullScreen></iframe>
+				</div>
 			</div>
 		)
 	}
