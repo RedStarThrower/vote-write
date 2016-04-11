@@ -370,10 +370,7 @@ body {
             width: 100%;
             display: block;
             margin-bottom: 20px;
-
-            iframe {
-                width: 95%;
-            }
+           
         }
 
          .rightCol {
@@ -382,6 +379,12 @@ body {
             overflow: scroll;
             margin-bottom: 20px;
 
+        }
+
+        .ballotView {
+            width: 95%;
+            margin: auto;
+ 
         }
 
     .footer {
