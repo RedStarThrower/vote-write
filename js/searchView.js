@@ -16,8 +16,6 @@ var SearchView = React.createClass({
     		//console.log(this.props.searchColl)
     		return (
     			<div className="searchView">
-       				<Header />
-       				<p>Displaying Search View</p>
     				<SearchBar />
     				<Scroll searchColl={this.props.searchColl}/>
     			</div>
@@ -51,7 +49,7 @@ var SearchView = React.createClass({
     		//console.log(resultsArr)
     		var jsxArr = []
     		resultsArr.forEach(function(resultMod, i) {
-    			var component = <SearchResult key={i}search_result={resultMod}/>
+    			var component = <SearchResult key={i} search_result={resultMod}/>
     			jsxArr.push(component)
     		})
     		return jsxArr
@@ -71,13 +69,13 @@ var SearchView = React.createClass({
 
     	render: function() {    		
     		var searchModel = this.props.search_result
-    		//console.log(searchModel)
+    		console.log(searchModel)
     		return(
     			<div className="searchResult">
     				<strong><p className="searchTitle">{searchModel.get('title')}</p></strong>
     				<p className="searchSnippet">Article snippet: {searchModel.get('snippet')}...</p>
-    				<img src={searchModel.get('image').thumbnailLink} />
-    				<a href={searchModel.get('link')}>{searchModel.get('displayLink')}</a>
+    				{/*<img src={searchModel.get('image').thumbnailLink} />*/}
+    				<a target="_blank" href={searchModel.get('link')}> {searchModel.get('displayLink')}</a>
     				<hr></hr>
     			</div>
     		)

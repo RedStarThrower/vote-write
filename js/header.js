@@ -5,11 +5,7 @@ var Header = React.createClass({
 	render: function(){
 		return(
 			<div className="header">
-				<h3>Welcome to my Final Project App!</h3>
-    			<p>Find all the info you need for local municipal elections in Harris County</p>  
-    			<a href="#home">Home</a>
-    			<a href="#ballot">View Sample Ballot</a>
-    			<hr></hr> 		
+				<a className="appTitle" href="#home"><h3><i>We</i> Vote Write |</h3></a>
 			</div>
 		)
 	}

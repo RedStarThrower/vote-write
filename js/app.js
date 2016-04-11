@@ -41,6 +41,8 @@ import Header from './header.js'
 import SearchView from './searchView.js'
 import HomeView from './homeView.js'
 import BallotView from './ballotView.js'
+import InteractView from './interactView.js'
+import Footer from './footer.js'
 
 
 function app() {
@@ -62,9 +64,9 @@ function app() {
 
     	routes: {
     		"home": "showHomeView",
-    		'search': "showSearchView",
+    		"home/viewType/search": "showSearchView",
+    		"home/viewType/leaders": "showLeaderView",
     		"search/:query": "searchFor",
-    		"ballot": "showBallotView",
     		"*default": "showHomeView"
     	},
 
@@ -78,6 +80,10 @@ function app() {
     		DOM.render(<SearchView searchColl={sc}/>, document.querySelector('.container'))
     	},
 
+    	showLeaderView: function() {
+    		DOM.render(<InteractView/>, document.querySelector('.container'))
+    	},
+
     	searchFor: function(query) {
     		var sc = new SearchCollection()
     		sc.fetch({
@@ -85,8 +91,7 @@ function app() {
        				output: "json",
  					cx: "015739195413953031624:f7gnodx282i",
   					q: query,
-  					searchType: "image",
-   					key: sc._apiKey
+     				key: sc._apiKey
 
     			}
     		}).then(function(){
