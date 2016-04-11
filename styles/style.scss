@@ -160,6 +160,7 @@ body {
     .appTitle {
         font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
         text-decoration: none;
+        display: inline-block;
 
             h3 {            
             padding-top: 25px;
@@ -232,8 +233,9 @@ body {
  .ballotView {
 
     iframe {
-        height: 40vh;
+        height: 55vh;
         width: 100%;
+        border: 3px solid #CFCBC8;
     }
  }
 
@@ -255,6 +257,7 @@ body {
     border-left: 1px solid #CFCBC8;
     width: 98%;
     margin-left: 10px;
+    height: 75vh;
 
     .intmenu {
         margin: 10px;
