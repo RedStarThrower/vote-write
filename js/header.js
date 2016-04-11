@@ -5,7 +5,7 @@ var Header = React.createClass({
 	render: function(){
 		return(
 			<div className="header">
-				<a className="appTitle" href="#home"><h3>We <i>Vote</i> Write |</h3></a>
+				<a className="appTitle" href="#home/search"><h3>Vote<i>Write</i> |</h3></a>
 			</div>
 		)
 	}

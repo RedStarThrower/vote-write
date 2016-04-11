@@ -27,7 +27,7 @@ var BallotView = React.createClass({
 	},
 
 	render: function() {
-		console.log(this)
+		//console.log(this)
 		return (
 			<div className="ballotView">
 				<p>Step 1. View the ballot for the upcoming election:</p>	

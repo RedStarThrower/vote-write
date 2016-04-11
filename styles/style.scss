@@ -249,13 +249,15 @@ body {
         height: 65vh;
         width: 100%;
         border: 3px solid #CFCBC8;
+        margin-top: 3px;
     }
  }
 
 
 // Search View
+
  .searchView {
-    border: 2px solid #CFCBC8;
+    border: 3px solid #CFCBC8;
     width: 90%;
     margin: auto;
     height: 65vh;
@@ -267,11 +269,21 @@ body {
         padding-top: 10px;
     }
 
+    .searchResult {
+        margin-top: 10px;
+        width: 90%;
+        margin: auto;
+
+        p {
+            display: inline-block;
+        }
+    }
+
     input {
         length: 25%;
         font-size: 15px;
         padding: 5px;
-        border: 1px solid #CFCBC8;
+        border: 3px solid #CFCBC8;
     }
 
     .scroll {
@@ -284,6 +296,7 @@ body {
 
     hr {
         padding-right: 5px;
+        width: 95%;
     }
     
  }
@@ -311,27 +324,38 @@ body {
         margin-top: 5px;
     }
 
-    .searchResult {
-        margin-top: 10px;
-
-        p {
-            display: inline-block;
-        }
-    }
+    
  }
 
  // Leader View
+
  .leaderView {
-    border: 2px solid #CFCBC8;
+    border: 3px solid #CFCBC8;
     width: 93%;
     margin: auto;
     overflow: scroll;
     background-color: white;
+    height: 65vh;
+    overflow: scroll;
+
+    hr {
+        width: 85%;
+    }
 
 
     .leaderBlurb {
         font-weight: bold;
         padding-top: 10px;
+    }
+
+    .groupName {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .groupBlurb {
+        width: 80%;
+        margin: auto;
     }
  }
 
@@ -356,6 +380,7 @@ body {
     }
 
     .footer {
+        position: relative;
 
          .tab {
             display: block;

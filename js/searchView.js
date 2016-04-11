@@ -99,7 +99,7 @@ var SearchView = React.createClass({
     			<div className="searchResult">
     			<hr></hr>
     				<strong><p className="searchTitle">Article Title: {searchModel.get('title')}</p></strong>
-    				<p className="searchSnippet">Article snippet: "{searchModel.get('snippet')}..." Read more: <a target="_blank" href={searchModel.get('link')}>{searchModel.get('displayLink')}</a></p>
+    				<p className="searchSnippet"><b>Article snippet:</b> "{searchModel.get('snippet')}..." <b>Read more:</b> <a target="_blank" href={searchModel.get('link')}>{searchModel.get('displayLink')}</a></p>
     			</div>
     		)
     	}
