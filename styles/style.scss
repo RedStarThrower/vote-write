@@ -384,6 +384,7 @@ body {
         .ballotView {
             width: 95%;
             margin: auto;
+
             iframe {
                 width: 95%;
                 margin: auto;
@@ -404,6 +405,14 @@ body {
         }  
     }
 }
+}
+
+@media only screen and (max-width: 360px) {
+    .ballotView {
+            width: 95%;
+            margin: auto;
+ 
+        }
 }
 
 
