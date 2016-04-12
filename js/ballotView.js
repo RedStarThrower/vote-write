@@ -10,19 +10,19 @@ var BallotView = React.createClass({
 
 	_handleMay24D: function() {
 		this.setState ({
-			source: "http://www.harrisvotes.com/SampleBallot/SampleBallotD.pdf",
+			source: "http://www.harrisvotes.com/SampleBallot/SampleBallotD.pdf"
 		})
 	},
 
 	_handleMay24R: function() {
 		this.setState ({
-			source: "http://www.harrisvotes.com/SampleBallot/SampleBallotR.pdf",
+			source: "http://www.harrisvotes.com/SampleBallot/SampleBallotR.pdf"
 		})
 	},
 
 	getInitialState: function() {
 		return {
-			source: "http://www.harrisvotes.com/SampleBallot/SampleBallot.pdf",
+			source: "http://www.harrisvotes.com/SampleBallot/SampleBallot.pdf"
 		}
 	},
 
