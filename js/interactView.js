@@ -3,21 +3,24 @@ import React, {Component} from 'react'
 var InteractView = React.createClass ({
 
 	_handleSearchClick: function() {
-		location.hash = "#home/search"
+		location.hash = `workspace/ballot/${this.props.ballot}/search`
 	},
 
 	_handleLeaderClick: function() {
-		location.hash = "#home/leaders"
+		location.hash = `workspace/ballot/${this.props.ballot}/leaders`
+	},
+
+	_handleNotepadClick: function() {
+		location.hash = `workspace/ballot/${this.props.ballot}/notepad`
 	},
 
 	render: function() {
+		//console.log(this.props)
 		return(
 			<div className="interactView">
-				<p className="interBlurb">Step 2. Run a custom search or view endorsements from prominent groups:</p>
-				<button onClick={this._handleSearchClick}>Search</button>
-				<button onClick={this._handleLeaderClick}>Community Leaders</button>
-				<div className="interactContent">
-				</div>
+				<button className="searchBtn" onClick={this._handleSearchClick}>Search</button>
+				<button className="leaderBtn" onClick={this._handleLeaderClick}>Community Leaders</button>
+				<button className="notepadBtn" onClick={this._handleNotepadClick}>Notepad</button>
 			</div>
 		)
 	}

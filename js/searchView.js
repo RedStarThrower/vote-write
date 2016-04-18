@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import Header from "./header.js"
-import BallotView from './ballotView.js'
+import {BallotContainer, BallotView} from './ballotView.js'
 import InteractView from './interactView.js'
 import Footer from './footer.js'
 
@@ -8,15 +8,16 @@ import Footer from './footer.js'
 var SearchContainer = React.createClass ({
 
 	render: function() {
+		//console.log(this)
 		return(
 			<div className="homeView"> 
-				<Header />				
+				<Header email={this.props.email}/>				
 					<div className="leftCol">
-						<BallotView/>
+						<BallotView ballot={this.props.ballot}/>
 					</div>
 					<div className="rightCol">
-						<InteractView />
-						<SearchView searchColl={this.props.searchColl} />
+						<InteractView ballot={this.props.ballot} />
+						<SearchView ballot={this.props.ballot} searchColl={this.props.searchColl} />
 					</div>
 				<Footer />
 			</div>
@@ -41,7 +42,7 @@ var SearchView = React.createClass({
 
     		return (
     			<div className="searchView">
-    				<SearchBar />
+    				<SearchBar ballot={this.props.ballot} />
     				<Scroll searchColl={this.props.searchColl}/>
     			</div>
     		)
@@ -54,15 +55,17 @@ var SearchView = React.createClass({
     		if (e.keyCode === 13) {
     			var query = e.target.value
     			//console.log(query) 
-      			location.hash = `home/search/${query}`   			
+      			location.hash = `workspace/ballot/${this.props.ballot}/search/${query}`   			
     		}
     	},
 
        	render: function() {
        		return (    			
     			<div className="searchContainer">
-    				<p className="searchBlurb">For a custom search, type name/issue and press "Enter"</p>
+    				<p className="searchBlurb">SEARCH | For a custom search, type name/issue and press "Enter"</p>
+    				<p className="searchHint">(Try adding "news" or "Houston" to your search)</p>
     				<input onKeyDown={this._search} placeholder="Search Google..."/>
+                    <hr></hr>
        			</div>
        		)
     	}
@@ -81,7 +84,7 @@ var SearchView = React.createClass({
     	},
 
     	render: function(){
-    		//console.log(this.props.searchColl)
+    		//console.log(this.props.searchColl.models)
     		return (
     			<div className="scroll">
     				{this._getSearchResultsJsx(this.props.searchColl.models)}
@@ -97,12 +100,12 @@ var SearchView = React.createClass({
     		//console.log(searchModel)
     		return(
     			<div className="searchResult">
-    			<hr></hr>
-    				<strong><p className="searchTitle">Article Title: {searchModel.get('title')}</p></strong>
-    				<p className="searchSnippet"><b>Article snippet:</b> "{searchModel.get('snippet')}..." <b>Read more:</b> <a target="_blank" href={searchModel.get('link')}>{searchModel.get('displayLink')}</a></p>
+    				<strong><p className="searchTitle"><i>{searchModel.get('title')}</i></p></strong>
+    				<p className="searchSnippet"><b>Article snippet:</b> "{searchModel.get('snippet')}..." <b>Read more:</b> <a target="_blank" href={searchModel.get('link')}>{searchModel.get('link')}</a></p>
+                    <hr></hr>
     			</div>
     		)
     	}
     })
 
-    export default SearchContainer
+    export  {SearchContainer, SearchView}

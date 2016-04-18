@@ -1,45 +1,68 @@
 import React, {Component} from 'react'
+import Header from "./header.js"
+import InteractView from './interactView.js'
+import {SearchContainer, SearchView} from './searchView.js'
+import Footer from './footer.js'
 
-var BallotView = React.createClass({
-
-	_handleMay7: function() {
-		this.setState ({
-			source: "http://www.harrisvotes.com/SampleBallot/SampleBallot.pdf"
-		})
-	},
-
-	_handleMay24D: function() {
-		this.setState ({
-			source: "http://www.harrisvotes.com/SampleBallot/SampleBallotD.pdf"
-		})
-	},
-
-	_handleMay24R: function() {
-		this.setState ({
-			source: "http://www.harrisvotes.com/SampleBallot/SampleBallotR.pdf"
-		})
-	},
-
-	getInitialState: function() {
-		return {
-			source: "http://www.harrisvotes.com/SampleBallot/SampleBallot.pdf"
-		}
-	},
+var BallotContainer = React.createClass({
 
 	render: function() {
 		//console.log(this)
 		return (
+			<div className="homeView"> 
+				<Header email={this.props.email}/>		
+					<div className="leftCol">
+						<BallotView ballot={this.props.ballot} searchColl={this.props.searchColl}/>
+					</div>
+					<div className="rightCol">
+						<InteractView ballot={this.props.ballot} />
+						<SearchView searchColl={this.props.searchColl} ballot={this.props.ballot}/>
+					</div>
+				<Footer />
+			</div>
+		)
+	}
+})
+
+var BallotView = React.createClass({
+
+	_handleMay7: function() {
+		location.hash = "workspace/ballot/05-07-16"
+	},
+
+	_handleMay24D: function() {
+		location.hash = "workspace/ballot/05-24-16D"
+	},
+
+	_handleMay24R: function() {
+		location.hash = "workspace/ballot/05-24-16R"
+	},
+
+	render: function() {
+		//console.log(this)
+		var source = "http://www.harrisvotes.com/SampleBallot/SampleBallot.pdf"
+		if (this.props.ballot === "05-07-16") {
+			source = "http://www.harrisvotes.com/SampleBallot/SampleBallot.pdf"
+		}
+		if (this.props.ballot === "05-24-16D") {
+			source = "http://www.harrisvotes.com/SampleBallot/SampleBallotD.pdf"
+		}
+		if (this.props.ballot === "05-24-16R") {
+			source = "http://www.harrisvotes.com/SampleBallot/SampleBallotR.pdf"
+		}
+		return (
 			<div className="ballotView">
-				<p>Step 1. View the ballot for the upcoming election:</p>	
-				<button onClick={this._handleMay7}>Sample Ballot May 7 (municipal)</button>
-				<button onClick={this._handleMay24D}>Sample Ballot May 24 (D)</button>
-				<button onClick={this._handleMay24R}>Sample Ballot May 24 (R)</button>	
+				<div className="ballotButtons">	
+					<button className="ballotBtn1" onClick={this._handleMay7}>May 7 (municipal)</button>
+					<button className="ballotBtn2" onClick={this._handleMay24D}>May 24 (D)</button>
+					<button className="ballotBtn3" onClick={this._handleMay24R}>May 24 (R)</button>
+				</div>		
 				<div className="frameWrap">
-				<iframe seamless src={this.state.source} title="sample_ballot" scrolling="auto" allowFullScreen></iframe>
+				<iframe seamless src={source} title="sample_ballot" scrolling="auto" allowFullScreen></iframe>
 				</div>
 			</div>
 		)
 	}
 })
 
-export default BallotView
+export {BallotContainer, BallotView}

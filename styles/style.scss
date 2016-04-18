@@ -128,6 +128,15 @@ body {
  * App code
  */
 // 
+$lightGrey: #CFCBC8;
+$grey: #75797c;
+$offWhite: #f7f7ef;
+$offBlack: #353535;
+$blue: rgb(69, 95, 173);
+$lightBlue: rgba(74, 138, 200, 0.2);
+$red: rgb(173, 22, 22);
+
+
  * {
     box-sizing: border-box;
 }
@@ -135,8 +144,7 @@ body {
 body {
     margin: 0;
     font-size: 12px;
-    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-    background-color: #EDEAE1;
+    background-color: $lightBlue;
 }
 
 .container {
@@ -152,36 +160,77 @@ body {
     width: 100%;
     margin-bottom: 10px;
     text-align: left;
-    cursor: pointer;
     background-color: white;
-    border-bottom: 1px solid #CFCBC8;
+    border-bottom: 1px solid $lightGrey;
 
 
     .appTitle {
         font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
         text-decoration: none;
         display: inline-block;
+        cursor: pointer;
 
             h3 {            
             padding-top: 25px;
-            padding-left: 15px;
+            padding-left: 35px;
+            padding-right: 15px;
             vertical-align: baseline;
             line-height: 30px;
-            color: #353535;
+            color: $blue;
 
             i {
-                color: #75797c;
+                color: $red;
             }
         }
 
     }
 
+    .greeting {   
+        position: relative;
+        display: inline-block;
+        font-size: 15px;
+        margin-left: 1%;
+        top: -7px;
+        cursor: normal;
+    }
+
+    .navBar {
+        display: inline-block;
+        position: fixed;
+        vertical-align: baseline;
+        right: 1%;
+        top: 2%;        
+
+        ul {
+            padding: 0;
+            max-width: 200ch;
+        }
+
+        .tab {
+            font-size: 17px;
+            color: $grey;
+            display: inline-block;
+            vertical-align: baseline;
+            cursor: pointer;
+            margin-right: 25px;
+            line-height: 40px;
+            text-decoration: none;
+        }
+
+
+        .tab:hover {
+            color: $red;
+            text-decoration: underline;
+        }
+    }
+
 }
 
 // Footer 
+
 .footer {
     background-color: white;
-    border-top: 1px solid #CFCBC8;
+    border-top: 1px solid $lightGrey;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -196,7 +245,7 @@ body {
 
     .tab {
         font-size: 17px;
-        color: #75797c;
+        color: $grey;
         display: inline-block;
         vertical-align: baseline;
         background: transparent;
@@ -205,6 +254,181 @@ body {
         margin-left: 1%;
         line-height: 40px;
         text-decoration: none;
+    }
+
+    .tab:hover {
+        color: $red;
+        text-decoration: underline;
+    }
+}
+
+//Splash Page 
+
+.splashView {
+    position: relative;
+    background-image: url("./images/houston-skyline.jpg");
+     background-size: cover;
+    height: 120vh;
+
+    .splashHeader {
+        position: relative;
+        width: 100%;
+        margin-bottom: 20px;
+        padding-bottom: 5px;
+        text-align: left;
+        background: white;
+        border-bottom: 2px solid $lightGrey;
+
+        .appTitle {
+            padding-top: 30px;
+            margin-left: 80px;
+            font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+            display: inline-block;
+
+                h3 { 
+                font-size: 55px;       
+                padding-left: 15px;
+                vertical-align: middle;
+                line-height: 30px;
+                color: rgb(69, 95, 173);
+
+                i {
+                    color: $red;
+                }
+            }
+
+        }
+    }
+
+    .splashLeftCol {
+        width: 32%;
+        margin-top: 3%;
+        display: inline-block;
+        vertical-align: top;
+        font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+
+            .leftBlurb {
+
+                width: 70%;
+                background-color: rgba(69, 95, 173, 0.8);
+                color: white;
+                font-size: 15px;
+                margin: auto;
+                padding: 30px;
+                padding-bottom: 15px;
+                margin-bottom: 20px;
+                text-align: left;
+
+                .appDescr {
+                }
+
+            }        
+    }
+
+     .splashMidCol {
+        width: 30%;
+        display: inline-block;
+        vertical-align: top;
+        margin: auto;
+        background-color: rgba(0,0,0, .4);
+        padding-bottom: 20px;
+        padding-top: 45px;
+
+        .midBlurb {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            padding-left: 20px;
+            padding-right: 20px;
+            width: 65%;
+            color: white;
+            background-color: rgba(173, 22, 22, 0.8);
+            font-size: 15px;
+            margin-left: 70px;
+            text-align: left;
+
+        }
+
+        .loginContainer {
+
+            input {
+                display: block;
+                width: 65%;
+                margin: auto;
+                font-size: 15px;
+                padding: 10px;
+                margin-bottom: 5px;
+                background: white;
+                color: black;
+            }
+
+            .logInBtn {
+                padding-left: 30px;
+                padding-right: 30px;
+                margin-bottom: 5px;
+                margin-top: 10px;
+                background-color: white;
+                color: $red;
+                border: 2px solid $red;
+                font-weight: bold;
+            }
+
+            .logInBtn:hover {
+                border: 2px solid white;
+                background-color: $red;
+                color: white;
+            }
+
+            .signUpBtn {
+                background-color: white;
+                color: $blue;
+                border: 2px solid $blue;
+                font-weight: bold;
+            }
+
+            .signUpBtn:hover {
+                border: 2px solid white;
+                background-color: $blue;
+                color: white;
+            }
+
+
+            button {
+                display: block;
+                font-size: 15px;
+                padding-left: 25px;
+                padding-right: 25px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                background-color:  white;
+                color: $grey;
+                border-top: 3px solid $lightGrey;
+                margin: auto;
+            }
+        }
+        
+    }
+
+    .splashRightCol {
+        margin-top: 3%;
+        width: 32%;
+        display: inline-block;
+        vertical-align: top;
+
+        .rightBlurb {
+            width: 70%;
+            margin: auto;
+            text-align: left;
+            padding: 30px;
+            padding-bottom: 15px;
+            background-color: rgba(69, 95, 173, 0.8);
+            color: white;
+            font-size: 15px;
+
+            .appDescr {
+                
+            }
+        }
+        
     }
 }
 
@@ -218,7 +442,6 @@ body {
             display: inline-block;
             vertical-align: top;
             padding-right: 5px;
-            // border-right: 2px solid #CFCBC8;
         }
 
         .rightCol {
@@ -231,7 +454,7 @@ body {
 
 }
 
- // Ballot View
+// Ballot View
 
  .ballotView {
 
@@ -241,27 +464,197 @@ body {
         font-weight: bold;
     }
 
-    button {
-        margin: 5px;
-        background-color:  #75797c;
-        color: white;
+    .ballotButtons {
+        margin-top: 15px;
+        margin-bottom: -5px;
+
+        button {
+            font-size: 15px;
+            padding-left: 25px;
+            padding-right: 25px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            background-color:  white;
+            color: $grey;
+            border-top: 2px solid $lightGrey;
+            border-bottom: none;
+            border-left: 2px solid $lightGrey;
+            border-right: none;
+        }
+
+         button:hover {
+            background-color: $grey;
+            color:  white;
+        }
+
+        .ballotBtn3 {
+            border-right: 2px solid $lightGrey;
+        }
+
     }
 
+       
     iframe {
         height: 65vh;
         width: 100%;
-        border: 3px solid #CFCBC8;
+        border: 2px solid $lightGrey;
         margin-top: 5px;
+        margin-left: 10px;
     }
  }
 
+//Interact View
+
+ .interactView {
+
+    position: relative;
+    width: 96%;
+    margin: 0;
+    margin-left: 15px;
+    margin-top: 15px;
+    margin-bottom: -5px;
+
+
+    .interBlurb {
+        font-weight: bold;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding-left: 30px;
+        padding-right: 20px;
+    }
+
+    button {
+        font-size: 15px;
+        padding-left: 25px;
+        padding-right: 25px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        background-color:  white;
+        color: $grey;
+        border-top: 2px solid $lightGrey;
+        border-bottom: none;
+        border-left: 2px solid $lightGrey;
+        border-right: none;
+    }
+
+    .notepadBtn {
+        border-right: 2px solid $lightGrey;
+    }
+
+
+    button:hover {
+        background-color: $grey;
+        color:  white;
+    }
+
+    .interactContent {
+        width: 80%;
+        margin: auto;
+        margin-top: 5px;
+    }
+
+    
+ }
+
+//About View 
+
+.aboutView {
+     background-image: url("./images/we-love-houston.jpg");
+    background-size: cover;
+    height: 100vh;
+
+    .leftCol {
+            width: 48%;
+            display: inline-block;
+            vertical-align: top;
+            padding-right: 5px;
+        }
+
+        .rightCol {
+            width: 50%;
+            display: inline-block;
+            vertical-align: top;
+            overflow: scroll;    
+
+        }
+
+
+.aboutSmallView {
+    width: 95%;
+    margin: auto;
+    height: 75vh;
+    margin-top: 5px;
+    //background-color: rgba(69, 95, 173, 0.9);
+   //background: $lightBlue;
+   background-color: rgba(255, 255, 255, 0.8);
+    text-align: left;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    color: black;
+
+    hr {
+        width: 100%;
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+
+
+    .mission {
+        font-weight: bold;
+        padding-top: 10px;
+        text-align: center;
+        padding-bottom: -15px;
+    }
+
+}
+}
+
+
+
+.howView {
+    width: 95%;
+    margin: auto;
+    margin-top: 5px;
+    //background: $lightBlue;
+    //background-color: rgba(173, 22, 22, 0.9);
+    background-color: rgba(255, 255, 255, 0.8);
+    height: 75vh;
+    text-align: left;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    color: black;
+    font-size: 15px;
+    overflow: scroll;
+
+    hr {
+        width: 100%;
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+
+
+    .howBlurb {
+        font-weight: bold;
+        padding-top: 10px;
+        text-align: center;
+        padding-bottom: -15px;
+        font-size: 15px;
+        color: $red;
+    }
+
+}
 
 // Search View
 
  .searchView {
-    border: 3px solid #CFCBC8;
+    border: 2px solid $lightGrey;
     width: 95%;
     margin: auto;
+    margin-top: 5px;
     height: 65vh;
     overflow: scroll;
     background-color: white;
@@ -273,12 +666,13 @@ body {
     hr {
         width: 100%;
         margin-bottom: 10px;
-        margin-top: -5px;
+        margin-top: 15px;
     }
 
     .searchBlurb {
         font-weight: bold;
         padding-top: 10px;
+        margin: 0;
     }
 
     .searchResult {
@@ -297,7 +691,7 @@ body {
         font-size: 15px;
         padding: 5px;
         margin-bottom: 5px;
-        border: 3px solid #CFCBC8;
+        border: 2px solid $lightGrey;
     }
 
     .scroll {
@@ -306,40 +700,13 @@ body {
     
  }
 
- //Interact View
-
- .interactView {
-
-    width: 98%;
-    margin-left: 10px;
-
-    .interBlurb {
-        font-weight: bold;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-
-    button {
-        margin: 5px;
-        background-color:  #75797c;
-        color: white;
-    }
-
-    .interactContent {
-        width: 80%;
-        margin: auto;
-        margin-top: 5px;
-    }
-
-    
- }
-
  // Leader View
 
  .leaderView {
-    border: 3px solid #CFCBC8;
+    border: 2px solid $lightGrey;
     width: 95%;
     margin: auto;
+    margin-top: 5px;
     overflow: scroll;
     background-color: white;
     height: 65vh;
@@ -361,6 +728,7 @@ body {
         padding-top: 10px;
         text-align: center;
         padding-bottom: -15px;
+        padding-left: 20px;
     }
 
     .groupName {
@@ -373,10 +741,294 @@ body {
     }
  }
 
+//Notepad View 
 
- //Mobile Styles
+.notepadView {
+    border: 2px solid $lightGrey;
+    width: 95%;
+    margin: auto;
+    margin-top: 5px;
+    height: 65vh;
+    overflow: scroll;
+    background-color: white;
+    padding-left: 45px;
+    padding-right: 45px;
+    padding-top: 10px;
+    padding-bottom: 15px;
 
- @media only screen and (max-width: 770px) {
+    hr {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .notepadBlurb {
+        font-weight: bold;
+        padding-top: 10px;
+        margin: 0;
+        margin-bottom: 10px;
+    }
+
+    .noteForm { 
+        text-align: left;      
+
+        label {
+            display: inline-block;
+            position: relative;
+           font-weight: bold;
+           margin-left: 5px;
+           margin-right: 10px;
+           margin-bottom: 7px;
+
+           input {
+            position: relative;
+            margin-right: 10px;
+            font-weight: normal;
+            margin-bottom: 7px;
+            padding: 5px;
+           }
+   
+           textarea {
+            position: relative;
+            font-weight: normal;
+            display: block;
+            width: 250%;
+            padding: 5px;
+           }
+
+        }
+
+        button {
+            background-color: white;
+            font-weight: bold;
+            color:  $grey;
+            border: 2px solid $lightGrey;
+            padding: 5px;
+            position: relative;
+            display: block;
+            margin-top: 15px;
+            left: 45%;
+        }
+
+        button:hover {
+            background-color: $grey;
+            color:  white;
+        }        
+    }
+} 
+
+.myNotesView {
+    border: 2px solid $lightGrey;
+    width: 95%;
+    margin: auto;
+    margin-top: 5px;
+    background-color: white;
+    overflow: scroll;
+    height: 75vh;
+    text-align: center;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 15px;
+
+    .noteBlurb {
+        font-weight: bold;
+        padding-bottom: -15px;
+    }
+
+    hr {
+        margin-bottom: 10px;
+    }
+
+    .myNoteView {
+        background-color: white;
+        border: 1px solid $grey;
+        margin-bottom: 10px;
+        padding: 10px;
+        text-align: left;
+    }
+
+
+    p {
+        display: inline-block;
+        margin-right: 10px;
+        margin: 5px;
+    }
+
+    input {  
+        margin-right: 10px; 
+        margin: 5px;      
+    }
+
+    .share {
+        margin-left: 5px;
+        font-weight: bold;
+        color: $red;
+    }
+
+    .print {
+        color: $blue;
+    }
+
+}
+
+.printView {
+    border: 2px solid $lightGrey;
+    width: 95%;
+    margin: auto;
+    margin-top: 5px;
+    background-color: white;
+    overflow: scroll;
+    height: 75vh;
+    text-align: center;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 15px;
+
+    .printBlurb {
+        font-weight: bold;
+        padding-bottom: -15px;
+    }
+
+    hr {
+        margin-bottom: 10px;
+    }
+
+    .printNoteView {
+        background-color: white;
+        border: 1px solid $grey;
+        margin-bottom: 10px;
+        padding: 10px;
+        text-align: left;
+    }
+
+
+    p {
+        display: inline-block;
+        margin-right: 10px;
+        margin: 5px;
+    }
+
+}
+
+
+.allNotesView {
+    border: 2px solid $lightGrey;
+    width: 95%;
+    margin: auto;
+    margin-top: 15px;
+    //background-color: rgba(255, 255, 255, 0.7);
+    background: white;
+    overflow: scroll;
+    height: 71.4vh;
+    text-align: center;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 15px;
+
+    .publicBlurb {
+        font-weight: bold;
+        padding-bottom: -15px;
+    }
+
+    hr {
+        margin-bottom: 10px;
+    }
+
+    .pubNoteView {
+        //background-color: white;
+        background-color: rgba(255, 255, 255, 0.2);
+        border: 1px solid $grey;
+        margin-bottom: 10px;
+        padding: 10px;
+        text-align: left;
+    }
+
+
+    p {
+        display: inline-block;
+        margin-right: 10px;
+        margin: 5px;
+    }
+
+}
+
+
+
+//Mobile Styles
+
+ @media  (max-width: 770px) {
+
+    .header {
+        text-align: center;
+
+        .appTitle {
+            display: block;
+            overflow: hidden;
+        }
+
+        .navBar {
+            position: relative;
+            display: block;
+            text-align: center;
+            left: 10px;          
+
+             .tab {
+                display: block;
+                font-size: 15px;
+                position: relative;
+            }
+        }
+    }
+
+    .splashView {     
+        position: relative;
+        height: 230vh;
+
+        .splashHeader {
+            width: 100%;
+            text-align: center;
+           .appTitle {
+                display: block;       
+                margin-left: 4%;
+
+                 h3 {
+                    font-size: 60px;
+
+                }   
+            } 
+        }        
+
+        .splashLeftCol {
+            display: inline-block;
+            margin-bottom: 20px; 
+            width: 90%;
+            margin-left: 15px;
+        }
+
+        .splashMidCol {
+            width: 80%;
+            display: block;
+            margin-bottom: 20px;
+            overflow: scroll;
+
+            .midBlurb {
+                margin-left: 17%;
+            }
+
+            .loginContainer {
+                input {
+                    width: 50%;
+                }
+            }            
+        }
+
+        .splashRightCol {
+            width: 80%;
+            display: inline-block;
+        }
+    }
 
     .homeView {
 
@@ -404,7 +1056,7 @@ body {
                 position: relative;
                 -webkit-overflow-scrolling: touch;
                 overflow-y: scroll;
-                border: 3px solid #CFCBC8;
+                border: 3px solid $lightGrey;
             }
 
             iframe[seamless] {
@@ -413,6 +1065,49 @@ body {
                 border: none;
             }
         }
+
+        .ballotView {
+
+            button {
+                border: 3px solid $lightGrey;
+                border-bottom: none;
+                margin-bottom: 5px;
+            }
+
+            .ballotBtn1 {
+                border-right: none;
+            }
+
+            .ballotBtn2 {
+                border-right: none;
+            }
+
+        }
+
+        .interactView {
+            button {
+                border: 3px solid $lightGrey;
+                border-bottom: none;
+            }
+
+            .searchBtn {
+                 border-right: none;
+            }
+
+             .leaderBtn {
+                 border-right: none;
+            }
+
+        }    
+
+        .notepadView {
+            .noteForm {
+                .noteCont {
+                    width: 45%;
+                }
+            }
+        }
+
 
         .footer {
             position: relative;
@@ -431,5 +1126,6 @@ body {
     } 
 
 }
+
 
 
