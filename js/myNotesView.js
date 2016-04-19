@@ -64,12 +64,16 @@ var MyNotesContainer = React.createClass ({
 
 var MyNotesView = React.createClass({
 
+	_deleteMyNote: function(model) {
+		this.props.noteColl.remove(model)
+	},
+
 	render: function() {
 		return(
 			<div className="myNotesView">
 				<p className="noteBlurb">MY NOTES | "Share" your note with the community, or click "Print" to add that candidate to the Print List you can bring to the poll booth.</p>
 				<hr></hr>
-					<MyNotesScroll noteColl={this.props.noteColl} />
+					<MyNotesScroll deleteNote={this._deleteMyNote} noteColl={this.props.noteColl} />
 			</div>
 		)
 	}
@@ -79,9 +83,10 @@ var MyNotesScroll = React.createClass({
 
 	_getMyNotesJsx: function(resultsArr) {
 		//console.log(resultsArr)
+		var self = this
 		var jsxArr = []
     		resultsArr.forEach(function(resultMod, i) {
-    			var component = <MyNote key={i} note={resultMod}/>
+    			var component = <MyNote deleteNote={self.props.deleteNote} key={i} note={resultMod}/>
     			jsxArr.push(component)
     		})
     		return jsxArr
@@ -130,6 +135,10 @@ var MyNote = React.createClass({
 		
 	},
 
+	_deleteNote: function(model, event) {
+		this.props.deleteNote(model)
+	},
+
 	render: function() {
 		var noteModel = this.props.note
 		//console.log(noteModel)
@@ -157,7 +166,7 @@ var MyNote = React.createClass({
 				<div className="myNotesButtons">
 					<label className="share">Share<input type="checkbox" checked={checkedStatus} onChange={this._shareMyNote}/></label>
 					<label className="print">Print<input type="checkbox" onChange={this._printMyNote}/></label>
-					{/*<button>Delete</button>*/}
+					<button onClick={this._deleteNote.bind(this, noteModel)}>Delete</button>
 				</div>
 			</div>
 		)

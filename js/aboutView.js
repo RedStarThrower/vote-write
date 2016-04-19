@@ -10,10 +10,10 @@ var AboutContainer = React.createClass({
 		return(
 			<div className="aboutView"> 
 				<Header email={this.props.email}/>		
-					<div className="leftCol">
+					<div className="aboutLeftCol">
 						<AboutView />
 					</div>
-					<div className="rightCol">
+					<div className="aboutRightCol">
 						<HowView />
 					</div>
 				<Footer />

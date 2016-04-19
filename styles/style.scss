@@ -565,14 +565,14 @@ body {
     background-size: cover;
     height: 100vh;
 
-    .leftCol {
+    .aboutLeftCol {
             width: 48%;
             display: inline-block;
             vertical-align: top;
             padding-right: 5px;
         }
 
-        .rightCol {
+        .aboutRightCol {
             width: 50%;
             display: inline-block;
             vertical-align: top;
@@ -1080,6 +1080,24 @@ body {
                 position: relative;
             }
         }
+    }
+
+    .aboutView {
+          .aboutLeftCol {
+                width: 100%;
+                display: block;
+                margin-bottom: 20px; 
+                overflow: scroll;
+
+            }
+
+          .aboutRightCol {
+            width: 100%;
+            display: block;
+            overflow: scroll;
+            margin-bottom: 30px;           
+        }
+
     }
 
     .splashView {     
