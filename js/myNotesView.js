@@ -5,14 +5,44 @@ import Footer from './footer.js'
 
 var MyNotesContainer = React.createClass ({
 
+	_updateToPrint: function(noteMod) {
+		// push noteMod onto the array on state
+		//console.log(this.state)
+		// this.setState({
+		// 	toPrint: // tautologically update state
+		// })
+	},
+
 	componentWillMount: function() {
 		var self = this
         this.props.noteColl.on('sync',function() {
             self.forceUpdate()
         })
-        this.props.printColl.on('sync',function() {
-            self.forceUpdate()
+        BBFire.Events.on("modifyPrintList", function(noteModel, checkStatus) {
+        	console.log("triggered:", noteModel, checkStatus)
+
+        	if (checkStatus) {
+        		var toPrintCopyArr = self.state.toPrint.filter(function(x){return x})
+        		toPrintCopyArr.push(noteModel)
+        		self.setState({
+        			toPrint: toPrintCopyArr
+        		})
+        	}
+        	else {
+        		var toPrintCopyArr = self.state.toPrint.filter(function(x){return false})
+        		toPrintCopyArr.push(noteModel)
+        		self.setState({
+        			toPrint: toPrintCopyArr
+        		})
+        	}
+
         })
+	},
+
+	getInitialState: function() {
+		return {
+			toPrint: []
+		}
 	},
 
 	render: function() {
@@ -21,10 +51,10 @@ var MyNotesContainer = React.createClass ({
 			<div className="homeView"> 
 				<Header email={this.props.email}/>		
 					<div className="leftCol">
-						<MyNotesView  noteColl={this.props.noteColl}/>
+						<MyNotesView noteColl={this.props.noteColl}/>
 					</div>
 					<div className="rightCol">
-						<PrintView printColl={this.props.printColl}/>
+						<PrintView notesToPrint={this.state.toPrint}/>
 					</div>
 				<Footer />
 			</div>
@@ -37,9 +67,9 @@ var MyNotesView = React.createClass({
 	render: function() {
 		return(
 			<div className="myNotesView">
-			<p className="noteBlurb">MY NOTES:</p>
-			<hr></hr>
-				<MyNotesScroll noteColl={this.props.noteColl} />
+				<p className="noteBlurb">MY NOTES:</p>
+				<hr></hr>
+					<MyNotesScroll noteColl={this.props.noteColl} />
 			</div>
 		)
 	}
@@ -69,24 +99,11 @@ var MyNotesScroll = React.createClass({
 var MyNote = React.createClass({
 
 	_printMyNote: function(event){
-		//console.log(event.target.checked)
+		//create trigger for a custom event
 		var noteModel = this.props.note
-		var PrintCollection = BBFire.Firebase.Collection.extend({
+		//console.log("triggering modify print list")
+		BBFire.Events.trigger("modifyPrintList", noteModel, event.target.checked) //<= last argument is the "payload"
 
-    		url: "https://vote-write.firebaseio.com/users",
-
-    		initialize: function(uid) {
-    		this.url = `https://vote-write.firebaseio.com/users/${uid}/printMyNotes`
-    	}
-    })
-		var pc = new PrintCollection(this.ref.getAuth().uid)
-		
-		if (event.target.checked) {
-			pc.create(noteModel.attributes)	
-		}
-		else {
-			pc.remove(noteModel.attributes)	
-		}
 		
 	},
 
@@ -133,12 +150,12 @@ var MyNote = React.createClass({
 var PrintView = React.createClass({
 
 	render: function() {
-		//console.log(this)
+		//console.log(this.props.notesToPrint)
 		return(
 			<div className="printView">
 				<p className="printBlurb">PRINT: </p>
 				<hr></hr>
-				<PrintScroll printColl={this.props.printColl} />
+				<PrintScroll notesArr={this.props.notesToPrint} />
 			</div>
 		)
 	}
@@ -146,7 +163,7 @@ var PrintView = React.createClass({
 
 var PrintScroll = React.createClass({
 
-	_getPubNotesJsx: function(resultsArr) {
+	_printMyNotesJsx: function(resultsArr) {
 		//console.log(resultsArr)
 		var jsxArr = []
     		resultsArr.forEach(function(resultMod, i) {
@@ -159,7 +176,7 @@ var PrintScroll = React.createClass({
 	render: function() {
 		return(
 			<div className="scroll">
-				{this._getPubNotesJsx(this.props.printColl.models)}
+				{this._printMyNotesJsx(this.props.notesArr)}
 			</div>
 		)
 	}

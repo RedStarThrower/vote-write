@@ -55,16 +55,6 @@ function app() {
     // new Router()
     var ref = new Firebase("https://vote-write.firebaseio.com/")
 
-    var PrintCollection = Backbone.Firebase.Collection.extend({
-
-    	url: "https://vote-write.firebaseio.com/users",
-
-    	initialize: function(uid) {
-    		this.url = `https://vote-write.firebaseio.com/users/${uid}/printMyNotes`
-    	}
-    })
-
-
     var PublicCollection = Backbone.Firebase.Collection.extend({
     	url: "https://vote-write.firebaseio.com/publicNotes"
     })
@@ -183,8 +173,7 @@ function app() {
 
     	showMyNotesView: function() {
     		var nc = new NoteCollection(this.ref.getAuth().uid)
-    		var printColl = new PrintCollection(this.ref.getAuth().uid)
-			DOM.render(<MyNotesContainer printColl={printColl} noteColl={nc} email={this.ref.getAuth().password.email}/>, document.querySelector('.container'))
+			DOM.render(<MyNotesContainer noteColl={nc} email={this.ref.getAuth().password.email} />, document.querySelector('.container'))
     	},
 
     	showAllNotesView: function(date) {

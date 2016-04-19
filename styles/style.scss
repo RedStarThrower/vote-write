@@ -267,7 +267,8 @@ body {
 .splashView {
     position: relative;
     background-image: url("./images/houston-skyline.jpg");
-     background-size: cover;
+    //background-image: url("./images/Vote-poster.png");
+    background-size: cover;
     height: 120vh;
 
     .splashHeader {
@@ -301,6 +302,7 @@ body {
     }
 
     .splashLeftCol {
+        background-color: rgba(0,0,0, .4);
         width: 32%;
         margin-top: 3%;
         display: inline-block;
@@ -308,9 +310,9 @@ body {
         font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 
             .leftBlurb {
-
+                padding-top: 20px;
                 width: 70%;
-                background-color: rgba(69, 95, 173, 0.8);
+                background-color: rgba(69, 95, 173, 1);
                 color: white;
                 font-size: 15px;
                 margin: auto;
@@ -318,9 +320,6 @@ body {
                 padding-bottom: 15px;
                 margin-bottom: 20px;
                 text-align: left;
-
-                .appDescr {
-                }
 
             }        
     }
@@ -341,7 +340,7 @@ body {
             padding-right: 20px;
             width: 65%;
             color: white;
-            background-color: rgba(173, 22, 22, 0.8);
+            background-color: rgba(173, 22, 22, 1);
             font-size: 15px;
             margin-left: 70px;
             text-align: left;
@@ -409,24 +408,23 @@ body {
     }
 
     .splashRightCol {
+        background-color: rgba(0,0,0, .4);
         margin-top: 3%;
         width: 32%;
         display: inline-block;
         vertical-align: top;
 
         .rightBlurb {
+            padding-top: 20px;
             width: 70%;
             margin: auto;
             text-align: left;
             padding: 30px;
             padding-bottom: 15px;
-            background-color: rgba(69, 95, 173, 0.8);
+            background-color: rgba(69, 95, 173, 1);
             color: white;
             font-size: 15px;
 
-            .appDescr {
-                
-            }
         }
         
     }

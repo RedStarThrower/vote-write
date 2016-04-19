@@ -40,7 +40,7 @@ var SplashPage = React.createClass({
 						<p className="appDescr">Description of the app goes here: 
 						1) Target audience (why Harris county voters should be excited to use this app.)
 						2) Explain problem the app solves with its main features (search, notepad) 
-						#) There needs to be quite a lot more text here in order to make the layout look good enough.
+						#) There needs to be quite a lot more text here in order
 						</p> 
 					</div>
 				</div>
@@ -59,7 +59,7 @@ var SplashPage = React.createClass({
 				<div className="splashRightCol">
 					<div className="rightBlurb">
 						<p className="appDescr">Description of the app's social features  goes here: engagement, education, participation, all of those things are super rad and will help users stay in touch with the community tra-lala.
-						#) There needs to be quite a lot more text here in order to make the layodgdfut look good enough.	
+						 	There needs to be quite a lot more text here in order to make the layodgdfut look good enough.	
 						</p> 
 					</div>	
 				</div>				   
