@@ -303,8 +303,10 @@ body {
 
     .splashLeftCol {
         background-color: rgba(0,0,0, .4);
+        padding-top: 40px;
+        padding-bottom: 30px;
+        border-right: 1px solid $lightGrey;
         width: 32%;
-        margin-top: 3%;
         display: inline-block;
         vertical-align: top;
         font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
@@ -409,10 +411,12 @@ body {
 
     .splashRightCol {
         background-color: rgba(0,0,0, .4);
-        margin-top: 3%;
         width: 32%;
         display: inline-block;
         vertical-align: top;
+        padding-top: 40px;
+        padding-bottom: 50px;
+        border-left: 1px solid $lightGrey;
 
         .rightBlurb {
             padding-top: 20px;
