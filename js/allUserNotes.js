@@ -36,7 +36,7 @@ var AllUserNotes = React.createClass({
 		//console.log(this)
 		return (
 			<div className="allNotesView">
-				<p className="publicBlurb">PUBLIC NOTES:</p>
+				<p className="publicBlurb">PUBLIC NOTES | See what other voters have to say about each candidate or proposition. </p>
 				<hr></hr>
 				<Scroll pubColl={this.props.pubColl} />
 			</div>
@@ -78,7 +78,7 @@ var PublicNote = React.createClass({
 		return (
 			<div style={styleObject} className="pubNoteView">
 				<p><b>Written by:</b> {noteModel.get("email")}</p>
-				<p><b>Date:</b> {noteModel.get("date")}</p>
+				<p><b>Election Date:</b> {noteModel.get("date")}</p>
 				<p><b>Party:</b> {noteModel.get("party")}</p>
 				<p><b>Area:</b> {noteModel.get("area")}</p>
 				<p><b>Position:</b> {noteModel.get("position")}</p>

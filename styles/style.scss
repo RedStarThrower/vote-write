@@ -856,21 +856,60 @@ body {
         margin: 5px;
     }
 
-    input {  
-        margin-right: 10px; 
-        margin: 5px;      
-    }
+    .myNotesButtons {
+        position: relative;
+        display: block;
+        margin-top: 10px;
 
-    .share {
-        margin-left: 5px;
-        font-weight: bold;
-        color: $red;
-    }
+        input {  
+            margin-right: 10px; 
+            margin: 5px;      
+        }
 
-    .print {
-        color: $blue;
-    }
+        .share {
+            border: 2px solid $blue;
+            padding: 5px;
+            margin-left: 5px;
+            margin-right: 10px;
+            font-weight: bold;
+            padding-top: 7px;
+            padding-bottom: 7px;
+            padding-left: 5px;
+            padding-right: 3px;
+            color: $blue;
+        }
 
+        .print {
+            font-weight: bold;
+            border: 2px solid $blue;
+            color: $blue;
+            padding-top: 7px;
+            padding-bottom: 7px;
+            padding-left: 5px;
+            padding-right: 3px;
+        }
+
+         button {
+                background-color: white;
+                color: $red;
+                border: 2px solid $red;            
+                font-weight: bold;            
+                padding-top: 4px;
+                padding-bottom: 4px;
+                padding-left: 5px;
+                padding-right: 5px;
+                margin-left: 10px;
+                position: relative;
+                display: inline-block;
+        }
+
+            button:hover {           
+                background-color: $red;
+                color: white;
+                border: 2px solid $red;
+            }
+    }
+    
 }
 
 .printView {
@@ -890,6 +929,8 @@ body {
     .printBlurb {
         font-weight: bold;
         padding-bottom: -15px;
+        padding-left: 25px;
+        padding-right: 25px;
     }
 
     hr {
@@ -898,17 +939,15 @@ body {
 
     .printNoteView {
         background-color: white;
-        border: 1px solid $grey;
-        margin-bottom: 10px;
-        padding: 10px;
         text-align: left;
+        margin-bottom: 5px;
     }
 
 
     p {
         display: inline-block;
         margin-right: 10px;
-        margin: 5px;
+        margin: 3px;
     }
 
 }
@@ -960,7 +999,66 @@ body {
 
 //Mobile Styles
 
- @media  (max-width: 770px) {
+@media screen and (max-width: 400px) {
+    .splashView {
+
+        .splashHeader {
+            position: relative;
+            text-align: center;
+
+            .appTitle {
+                h3 {
+                   font-size: .5em;
+                   line-height: .5em;
+                }
+
+            }
+        }
+
+        .splashLeftCol {
+                background: transparent;
+                border-right: none;
+                margin: 0;
+            .leftBlurb {
+                display: none;
+            }
+            
+        }
+
+        .splashMidCol {
+            width: 100%;
+            margin-top: -100px;
+            margin-left: 10px;
+            padding-top: 0;
+            padding-left: 0;
+            padding-right: 0;
+            background: transparent;
+            overflow: none;
+
+            .midBlurb {
+                position: relative;
+                width: 83%;
+                margin: auto;
+            }
+
+            .loginContainer {
+                margin-left: 25px;
+            }
+        }
+
+         .splashRightCol {
+                background: transparent;
+                border-left: none;
+                margin: 0;
+            .rightBlurb {
+                display: none;
+            }
+            
+        }
+    }
+}
+
+ @media all and (max-width: 770px) {
 
     .header {
         text-align: center;
@@ -986,7 +1084,7 @@ body {
 
     .splashView {     
         position: relative;
-        height: 230vh;
+        height: 200vh;
 
         .splashHeader {
             width: 100%;
@@ -1005,8 +1103,8 @@ body {
         .splashLeftCol {
             display: inline-block;
             margin-bottom: 20px; 
-            width: 90%;
-            margin-left: 15px;
+            width: 80%;
+            border: none;
         }
 
         .splashMidCol {
@@ -1029,6 +1127,7 @@ body {
         .splashRightCol {
             width: 80%;
             display: inline-block;
+            border: none;
         }
     }
 

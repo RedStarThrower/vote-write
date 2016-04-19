@@ -79,6 +79,7 @@ var NotepadView = React.createClass({
 			proposition: this.proposition,
 			note_content: this.note_content,
 			email: this.props.email,
+			is_shared: false,
 		}
 		this.props.noteColl.create(noteObj)
 		alert('Your note has been saved. View it in "My Notes."')
