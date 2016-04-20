@@ -289,19 +289,18 @@ body {
     position: relative;
     background-image: url("./images/houston-skyline.jpg");
     background-size: cover;
-    height: 100vh;
+    height: 105vh;
 
     .splashHeader {
         position: relative;
         width: 100%;
-        padding-bottom: 5px;
-        padding-top: 5px;
         text-align: left;
         background: white;
 
             .loginContainer {
-                padding-left: 20px;
-                padding-bottom: 5px;
+                display: inline-block;
+                padding-left: 1%;
+                padding-top: 15px;
                 
                 input {
                     padding: 5px;
@@ -320,6 +319,7 @@ body {
                 .logInBtn {
                     border: 2px solid $blue;
                     color: $blue;
+                    background-color: white;
                 }
 
                 .logInBtn:hover {
@@ -331,6 +331,7 @@ body {
                 .signUpBtn {
                     border: 2px solid $red;
                     color: $red;
+                    background-color: white;
                 }
 
                 .signUpBtn:hover {
@@ -953,21 +954,25 @@ body {
 @media screen and (max-width: 400px) {
     .splashView {
 
-        .splashHeader {
-            position: relative;
-            text-align: center;
+        .splashMidCol {
+            .blurb {
+                padding-right: 5px;
+                position: relative;
+                margin-top: -260px;
+            }
 
-            .appTitle {
-                h3 {
-                   font-size: .5em;
-                   line-height: .5em;
-                }
-
+            .appTitle{
+                display: none;
             }
         }
 
-       }
+        .splashHeader {
+            position: relative;
+            text-align: center;
+        }
+
     }
+}
 
  @media all and (max-width: 770px) {
 
