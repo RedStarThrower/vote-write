@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import Header from "./header.js"
-import HowView from './howView.js'
 import Footer from './footer.js'
 
 var AboutContainer = React.createClass({

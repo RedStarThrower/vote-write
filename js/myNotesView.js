@@ -177,7 +177,7 @@ var PrintView = React.createClass({
 		return(
 
 			<div className="printView">
-				<p className="printBlurb">BALLOT CHEAT SHEET | Take your condensed list of chosen candidates to the polls: print this page and bring in to the booth, or review it on your mobile device while waiting in line.</p>
+				<p className="printBlurb">BALLOT CHEAT SHEET | Take your condensed list of chosen candidates to the polls - print and bring it to the booth, or review it on your mobile device while waiting in line.</p>
 				<hr></hr>
 				<PrintScroll notesArr={this.props.notesToPrint} />
 			</div>
