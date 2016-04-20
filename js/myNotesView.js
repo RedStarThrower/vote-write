@@ -157,9 +157,7 @@ var MyNote = React.createClass({
 		return (
 			<div style={styleObject} className="myNoteView">
 				<p><b>Election Date:</b> {noteModel.get("date")}</p>
-				<p><b>Party:</b> {noteModel.get("party")}</p>
-				<p><b>Area:</b> {noteModel.get("area")}</p>
-				<p><b>Position:</b> {noteModel.get("position")}</p>
+				<p><b>Race:</b> {noteModel.get("party")} - {noteModel.get("position")}, {noteModel.get("area")}</p>
 				<p><b>Name:</b> {noteModel.get("first_name")} {noteModel.get("last_name")}</p>
 				<p><b>Note:</b> {noteModel.get("note_content")}</p>	
 				<div className="myNotesButtons">
@@ -220,7 +218,7 @@ var PrintNote = React.createClass({
 		}
 		return (
 			<div style={styleObject} className="printNoteView">
-				<p>{noteModel.get("position")}, {noteModel.get("area")}, <b>Voting for: </b>{noteModel.get("first_name")} {noteModel.get("last_name")}</p>
+				<p><b>Race:</b> {noteModel.get("party")} - {noteModel.get("position")}, {noteModel.get("area")}; <b>Voting for: </b>{noteModel.get("first_name")} {noteModel.get("last_name")}</p>
 			</div>
 		)
 	}

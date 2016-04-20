@@ -536,17 +536,19 @@ body {
 
 .aboutView {
     position: relative;
-    background-image: url("./images/houston-skyline.jpg");
-    background-size: cover;
+    background-color: rgba(74, 138, 200, 0.5);
     height: 100vh;
 
-    .aboutSmallView {
-        background-color: rgba(0, 0, 0, 0.3);
-        width: 60%;
+    .aboutCol {
+        //background-color: rgba(0, 0, 0, 0.3);
+        position: relative;
+        top: 5px;
+        background-color: rgba(173, 22, 22, 0.7);
+        width: 55%;
         margin: auto;
         height: 75vh;
     }
-    .aboutLittleView { 
+    .aboutText { 
         position: relative;
         height: 60vh;
         top: 55px;
@@ -554,10 +556,7 @@ body {
         margin: auto; 
         background-color: rgba(255, 255, 255, 1);
         text-align: left;
-        padding-left: 10px;
-        padding-right: 10px;
-        padding-top: 10px;
-        padding-bottom: 15px;
+        padding: 20px;
         color: black;
     }
 
@@ -568,11 +567,19 @@ body {
     }
 
 
-    .mission {
+    .title {
+        width: 100%;
+        margin: auto;
+        font-size: 15px;
         font-weight: bold;
         padding-top: 10px;
         text-align: center;
-        padding-bottom: -15px;
+    }
+
+    .text {
+        width: 100%;
+        margin: auto;
+
     }
 
 }
@@ -977,6 +984,16 @@ body {
 //Mobile Styles
 
 @media screen and (max-width: 400px) {
+
+    .aboutView {
+        height: 150vh;
+         .aboutCol {
+            width: 95%;
+         }
+
+    }
+
+
     .splashView {
 
         .splashMidCol {
@@ -1024,20 +1041,10 @@ body {
     }
 
     .aboutView {
-          .aboutLeftCol {
-                width: 100%;
-                display: block;
-                margin-bottom: 20px; 
-                overflow: scroll;
-
-            }
-
-          .aboutRightCol {
-            width: 100%;
-            display: block;
-            overflow: scroll;
-            margin-bottom: 30px;           
-        }
+        height: 145vh;
+         .aboutCol {
+            width: 95%;
+         }
 
     }
 

@@ -82,11 +82,11 @@ var NotepadView = React.createClass({
 			is_shared: false,
 		}
 		this.props.noteColl.create(noteObj)
-		alert('Your note has been saved. View it in "My Notes."')
+		window.location.reload()
 	},
 
 	render: function() {
-		console.log(this)
+		//console.log(this)
 		var date = this.props.ballot
 		if (date === "05-07-16") {
 			date = "May 7, 2016"
@@ -99,19 +99,19 @@ var NotepadView = React.createClass({
 		}
 		return(
 			<div className="notepadView">
-				<p className="notepadBlurb">NOTEPAD | Jot down your selections, opinions, and experiences. You can view and print them in "My Notes", or publish them for other users to see in "All User Notes":</p>
+				<p className="notepadBlurb">NOTEPAD | Jot down your selections, opinions, and experiences. You can view and print them in "My Notes", or publish them for other users to see in "Public Notes":</p>
 				<hr></hr>
 				<div className="noteForm">
 					<label>Election Date: <input required defaultValue={date} onChange={this._setDate} ref="elecDate" /></label>
 					<label>Party: <input placeholder='ex: "Dem", "Rep", "Mun"' onChange={this._setParty}/></label>
 					<label>Position: <input placeholder='ex: "Justice of the Peace"' onChange={this._setPosition}/></label>			
 					<label>Area: <input placeholder='ex: "Precinct 5, Place 1"'onChange={this._setArea}/></label>	
-					<label>First Name: <input placeholder="Candidate's first name" onChange={this._setFirstName}/></label>			
-					<label>Last Name: <input placeholder="Candidate's last name"onChange={this._setLastName}/></label>
-					<label>Proposition: <input placeholder='ex: "3"'onChange={this._setProposition}/></label>		
+					<label>First Name: <input className="toClear" placeholder="Candidate's first name" onChange={this._setFirstName}/></label>			
+					<label>Last Name: <input className="toClear" placeholder="Candidate's last name"onChange={this._setLastName}/></label>
+					<label>Proposition: <input className="toClear" placeholder='ex: "3"'onChange={this._setProposition}/></label>		
 					<hr></hr>
 					<div className="noteCont">	
-						<label>Note: <textarea required rows="5" maxLength="500" placeholder='ex: "I would/would not vote for this candidate/proposition, because..." (max character length: 500)'onChange={this._setNoteContent}/></label>	
+						<label>Note: <textarea className="toClear" required rows="5" maxLength="500" placeholder='ex: "I would/would not vote for this candidate/proposition, because..." (max character length: 500)'onChange={this._setNoteContent}/></label>	
 					</div>		
 					<button onClick={this._saveNote}>Save Note</button>
 				</div>

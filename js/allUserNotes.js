@@ -13,6 +13,10 @@ var AllNotesContainer = React.createClass({
 
 	},
 
+	componentWillUnmount: function() {
+        this.props.pubColl.off()
+	},
+
 	render: function() {
 		//console.log(this)
 		return(
@@ -110,13 +114,11 @@ var PublicNote = React.createClass({
 		}
 		return (
 			<div style={styleObject} className="pubNoteView">
-				<p><b>Written by:</b> {noteModel.get("email")}</p>
+				<p><b>Written by:</b> <a target="_blank" href={"mailto:" + noteModel.get("email")}>{noteModel.get("email")}</a></p>
 				<p><b>Election Date:</b> {noteModel.get("date")}</p>
-				<p><b>Party:</b> {noteModel.get("party")}</p>
-				<p><b>Area:</b> {noteModel.get("area")}</p>
-				<p><b>Position:</b> {noteModel.get("position")}</p>
+				<p><b>Race:</b> {noteModel.get("party")} - {noteModel.get("position")}, {noteModel.get("area")}</p>
 				<p><b>Name:</b> {noteModel.get("first_name")} {noteModel.get("last_name")}</p>
-				<p><b>Note:</b> {noteModel.get("note_content")}</p>
+				<p><b>Note:</b> {noteModel.get("note_content")}</p>	
 			</div>
 		)
 	}
