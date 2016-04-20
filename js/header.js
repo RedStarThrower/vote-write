@@ -11,9 +11,9 @@ var Header = React.createClass({
 				<div className="navBar">	
 					<ul>			
 					<a href="#workspace/ballot/05-07-16"><li className="tab">{"\u2605"}My Workspace</li></a>
-					<a href="#mynotes"><li className="tab">{"\u2605"}My Notes</li></a>
+					<a href="#mynotes"><li className="tab even">{"\u2605"}My Notes</li></a>
 					<a href="#allnotes"><li className="tab">{"\u2605"}Public Notes</li></a>
-					<a href="#about"><li className="tab">{"\u2605"}About</li></a>
+					<a href="#about"><li className="tab even">{"\u2605"}About</li></a>
 					<a href="#logout"><li className="tab">{"\u2605"}Log Out</li></a>
 					</ul>
 				</div>	
