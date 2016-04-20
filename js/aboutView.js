@@ -9,13 +9,10 @@ var AboutContainer = React.createClass({
 		//console.log(this)
 		return(
 			<div className="aboutView"> 
-				<Header email={this.props.email}/>		
-					<div className="aboutLeftCol">
+				<Header email={this.props.email}/>	
+				<div className="aboutSmallView">
 						<AboutView />
-					</div>
-					<div className="aboutRightCol">
-						<HowView />
-					</div>
+				</div>
 				<Footer />
 			</div>
 		)
@@ -25,7 +22,7 @@ var AboutContainer = React.createClass({
 var AboutView = React.createClass({
 	render: function() {
 		return (
-			<div className="aboutSmallView">
+			<div className="aboutLittleView">
 				<p className="mission">Mission statement goes here</p>
 				<p className="mission">Contact info goes here</p>
 			</div>

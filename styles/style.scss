@@ -132,8 +132,9 @@ $lightGrey: #CFCBC8;
 $grey: #75797c;
 $offWhite: #f7f7ef;
 $offBlack: #353535;
-$blue: rgb(69, 95, 173);
+$blue: rgba(22, 33, 94, 1);
 $lightBlue: rgba(74, 138, 200, 0.2);
+//$lightBlue: rgba(22, 33, 94, 0.2);
 $red: rgb(173, 22, 22);
 
 
@@ -165,7 +166,6 @@ body {
 
 
     .appTitle {
-        font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
         text-decoration: none;
         display: inline-block;
         cursor: pointer;
@@ -178,8 +178,19 @@ body {
             line-height: 30px;
             color: $blue;
 
-            i {
+            .write {
+                display: inline-block;
+                margin: 0;
+                font-style: italic;
+                font-family: 'Courgette', cursive;
+                            
+            }
+
+            .vote {
+                display: inline-block;
+                margin: 0;
                 color: $red;
+                font-family: 'Righteous', cursive;
             }
         }
 
@@ -220,7 +231,7 @@ body {
 
         .tab:hover {
             color: $red;
-            text-decoration: underline;
+            font-weight: bold;
         }
     }
 
@@ -258,7 +269,7 @@ body {
 
     .tab:hover {
         color: $red;
-        text-decoration: underline;
+        font-weight: bold;
     }
 }
 
@@ -267,172 +278,117 @@ body {
 .splashView {
     position: relative;
     background-image: url("./images/houston-skyline.jpg");
-    //background-image: url("./images/Vote-poster.png");
     background-size: cover;
-    height: 120vh;
+    height: 100vh;
 
     .splashHeader {
         position: relative;
         width: 100%;
-        margin-bottom: 20px;
         padding-bottom: 5px;
+        padding-top: 5px;
         text-align: left;
         background: white;
-        border-bottom: 2px solid $lightGrey;
 
-        .appTitle {
-            padding-top: 30px;
-            margin-left: 80px;
-            font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-            display: inline-block;
+            .loginContainer {
+                padding-left: 20px;
+                padding-bottom: 5px;
+                
+                input {
+                    padding: 5px;
+                    margin: 5px;
+                    display: block;
+                }
 
-                h3 { 
-                font-size: 55px;       
-                padding-left: 15px;
-                vertical-align: middle;
-                line-height: 30px;
-                color: rgb(69, 95, 173);
+                button {
+                    position: relative;
+                    background: transparent;
+                    border: none;
+                    font-weight: bold;
+                    margin-left: 15px;
+                }
 
-                i {
+                .logInBtn {
+                    border: 2px solid $blue;
+                    color: $blue;
+                }
+
+                .logInBtn:hover {
+                    border: 2px solid $blue;
+                    color: white;
+                    background-color: $blue
+                }
+
+                .signUpBtn {
+                    border: 2px solid $red;
                     color: $red;
                 }
+
+                .signUpBtn:hover {
+                    border: 2px solid $red;
+                    color: white;
+                    background-color: $red;
+                }
+
+                p {
+                    display: inline-block;
+                    color: $red;
+                    margin: 10px;
+                }
             }
-
-        }
     }
 
-    .splashLeftCol {
-        background-color: rgba(0,0,0, .4);
-        padding-top: 40px;
-        padding-bottom: 30px;
-        border-right: 1px solid $lightGrey;
-        width: 32%;
-        display: inline-block;
-        vertical-align: top;
-        font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-
-            .leftBlurb {
-                padding-top: 20px;
-                width: 70%;
-                background-color: rgba(69, 95, 173, 1);
-                color: white;
-                font-size: 15px;
-                margin: auto;
-                padding: 30px;
-                padding-bottom: 15px;
-                margin-bottom: 20px;
-                text-align: left;
-
-            }        
-    }
-
+  
      .splashMidCol {
-        width: 30%;
+        width: 100%;
         display: inline-block;
         vertical-align: top;
         margin: auto;
-        background-color: rgba(0,0,0, .4);
-        padding-bottom: 20px;
-        padding-top: 45px;
 
-        .midBlurb {
-            padding-top: 20px;
-            padding-bottom: 20px;
-            padding-left: 20px;
-            padding-right: 20px;
-            width: 65%;
+        .blurb{
+            background-color: rgba(0, 0, 0, 0.5); 
+            font-family: 'Satisfy', cursive;
             color: white;
-            background-color: rgba(173, 22, 22, 1);
-            font-size: 15px;
-            margin-left: 70px;
-            text-align: left;
-
+            font-size: 50px;
+            position: relative;
+            top: 350px;
+            padding-bottom: 5px;
+            padding-top: 5px;
         }
 
-        .loginContainer {
-
-            input {
-                display: block;
-                width: 65%;
+            .appTitle {
+                position: relative;
+                background: transparent;
+                width: 90%;
                 margin: auto;
-                font-size: 15px;
-                padding: 10px;
-                margin-bottom: 5px;
-                background: white;
-                color: black;
-            }
+                margin-top: 7.4%;
 
-            .logInBtn {
-                padding-left: 30px;
-                padding-right: 30px;
-                margin-bottom: 5px;
-                margin-top: 10px;
-                background-color: white;
-                color: $red;
-                border: 2px solid $red;
-                font-weight: bold;
-            }
+                    h3 {
+                        line-height: 200px;
+                        color: $red;
+                        text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
 
-            .logInBtn:hover {
-                border: 2px solid white;
-                background-color: $red;
-                color: white;
-            }
+                        .write {
+                            display: inline-block;
+                            margin: 0;
+                            color: rgba(22, 33, 94, 1);
+                            font-size: 180px;
+                            font-family: 'Courgette', cursive;
+                        }
 
-            .signUpBtn {
-                background-color: white;
-                color: $blue;
-                border: 2px solid $blue;
-                font-weight: bold;
+                        .vote {
+                            font-size: 190px;
+                            display: inline-block;
+                            margin: 0;
+                            color: $red;
+                            font-family: 'Righteous', cursive;
+                        }
+                    }
             }
-
-            .signUpBtn:hover {
-                border: 2px solid white;
-                background-color: $blue;
-                color: white;
-            }
-
-
-            button {
-                display: block;
-                font-size: 15px;
-                padding-left: 25px;
-                padding-right: 25px;
-                padding-top: 10px;
-                padding-bottom: 10px;
-                background-color:  white;
-                color: $grey;
-                border-top: 3px solid $lightGrey;
-                margin: auto;
-            }
-        }
         
     }
 
-    .splashRightCol {
-        background-color: rgba(0,0,0, .4);
-        width: 32%;
-        display: inline-block;
-        vertical-align: top;
-        padding-top: 40px;
-        padding-bottom: 50px;
-        border-left: 1px solid $lightGrey;
-
-        .rightBlurb {
-            padding-top: 20px;
-            width: 70%;
-            margin: auto;
-            text-align: left;
-            padding: 30px;
-            padding-bottom: 15px;
-            background-color: rgba(69, 95, 173, 1);
-            color: white;
-            font-size: 15px;
-
-        }
-        
-    }
 }
+
 
 //HomeView 
 
@@ -561,40 +517,32 @@ body {
 //About View 
 
 .aboutView {
-     background-image: url("./images/we-love-houston.jpg");
+    position: relative;
+    background-image: url("./images/houston-skyline.jpg");
     background-size: cover;
     height: 100vh;
 
-    .aboutLeftCol {
-            width: 48%;
-            display: inline-block;
-            vertical-align: top;
-            padding-right: 5px;
-        }
-
-        .aboutRightCol {
-            width: 50%;
-            display: inline-block;
-            vertical-align: top;
-            overflow: scroll;    
-
-        }
-
-
-.aboutSmallView {
-    width: 95%;
-    margin: auto;
-    height: 75vh;
-    margin-top: 5px;
-    //background-color: rgba(69, 95, 173, 0.9);
-   //background: $lightBlue;
-   background-color: rgba(255, 255, 255, 0.8);
-    text-align: left;
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-top: 10px;
-    padding-bottom: 15px;
-    color: black;
+    .aboutSmallView {
+        background-color: rgba(0, 0, 0, 0.3);
+        //background-color: rgba(74, 138, 200, 0.2);
+        width: 60%;
+        margin: auto;
+        height: 75vh;
+    }
+    .aboutLittleView {  
+        position: relative;
+        height: 60vh;
+        top: 55px;
+        width: 80%;
+        margin: auto; 
+        background-color: rgba(255, 255, 255, 1);
+        text-align: left;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 10px;
+        padding-bottom: 15px;
+        color: black;
+    }
 
     hr {
         width: 100%;
@@ -611,16 +559,11 @@ body {
     }
 
 }
-}
-
-
 
 .howView {
     width: 95%;
     margin: auto;
     margin-top: 5px;
-    //background: $lightBlue;
-    //background-color: rgba(173, 22, 22, 0.9);
     background-color: rgba(255, 255, 255, 0.8);
     height: 75vh;
     text-align: left;
@@ -1015,48 +958,8 @@ body {
             }
         }
 
-        .splashLeftCol {
-                background: transparent;
-                border-right: none;
-                margin: 0;
-            .leftBlurb {
-                display: none;
-            }
-            
-        }
-
-        .splashMidCol {
-            width: 100%;
-            margin-top: -100px;
-            margin-left: 10px;
-            padding-top: 0;
-            padding-left: 0;
-            padding-right: 0;
-            background: transparent;
-            overflow: none;
-
-            .midBlurb {
-                position: relative;
-                width: 83%;
-                margin: auto;
-            }
-
-            .loginContainer {
-                margin-left: 25px;
-            }
-        }
-
-         .splashRightCol {
-                background: transparent;
-                border-left: none;
-                margin: 0;
-            .rightBlurb {
-                display: none;
-            }
-            
-        }
+       }
     }
-}
 
  @media all and (max-width: 770px) {
 
@@ -1098,55 +1001,6 @@ body {
             margin-bottom: 30px;           
         }
 
-    }
-
-    .splashView {     
-        position: relative;
-        height: 200vh;
-
-        .splashHeader {
-            width: 100%;
-            text-align: center;
-           .appTitle {
-                display: block;       
-                margin-left: 4%;
-
-                 h3 {
-                    font-size: 60px;
-
-                }   
-            } 
-        }        
-
-        .splashLeftCol {
-            display: inline-block;
-            margin-bottom: 20px; 
-            width: 80%;
-            border: none;
-        }
-
-        .splashMidCol {
-            width: 80%;
-            display: block;
-            margin-bottom: 20px;
-            overflow: scroll;
-
-            .midBlurb {
-                margin-left: 17%;
-            }
-
-            .loginContainer {
-                input {
-                    width: 50%;
-                }
-            }            
-        }
-
-        .splashRightCol {
-            width: 80%;
-            display: inline-block;
-            border: none;
-        }
     }
 
     .homeView {

@@ -30,39 +30,20 @@ var SplashPage = React.createClass({
 
 		return(
 			<div className="splashView">
-				<div className="splashHeader">
-					<div className="appTitle">
-						<h3>Write|<i>Vote.</i></h3>
-					</div>	
-				</div>
-				<div className="splashLeftCol">
-					<div className="leftBlurb">
-						<p className="appDescr">Description of the app goes here: 
-						1) Target audience (why Harris county voters should be excited to use this app.)
-						2) Explain problem the app solves with its main features (search, notepad) 
-						#) There needs to be quite a lot more text here in order
-						</p> 
-					</div>
-				</div>
-				<div className="splashMidCol">
-					<div className="midBlurb">
-						<p className="appBlurb">Blurb about big picture, goal of this app, and quotes about patriotism and such can go here. This app is super important and useful and will engage voters and get them out to vote and democracy will prevail forever</p>
-					</div>
-					<div className="loginContainer">	
-						<p className="error">{errorMsg}</p>
+				<div className="splashHeader">			
+					<div className="loginContainer">
 						<input placeholder="Enter your e-mail" onChange={this._updateEmail} />
 		                <input placeholder="Enter your password" onChange={this._updatePassword} type="password" />
 		                 <button className="logInBtn" onClick={this._handleLogIn} >Log In</button>
 		                 <button className="signUpBtn" onClick={this._handleSignUp}>Sign Up</button>
-		             </div> 
+		                 <p className="error">{errorMsg}</p>	            </div> 
 				</div>
-				<div className="splashRightCol">
-					<div className="rightBlurb">
-						<p className="appDescr">Description of the app's social features  goes here: engagement, education, participation, all of those things are super rad and will help users stay in touch with the community tra-lala.
-						 	There needs to be quite a lot more text here in order to make the layodgdfut look good enough.	
-						</p> 
-					</div>	
-				</div>				   
+				<div className="splashMidCol">
+					<div className="blurb">{"\u2605"} get ready to make a difference</div>
+					<div className="appTitle">
+						<h3><p className="write">Write</p><p className="vote">Vote</p></h3>	
+					</div>					
+				</div>		   
                  <Footer />
 			</div>
 		)

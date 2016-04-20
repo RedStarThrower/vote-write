@@ -222,8 +222,6 @@ var PrintNote = React.createClass({
 		return (
 			<div style={styleObject} className="printNoteView">
 				<p>{noteModel.get("position")}, {noteModel.get("area")}, <b>Voting for: </b>{noteModel.get("first_name")} {noteModel.get("last_name")}</p>
-				{/*<p><b>Note:</b> {noteModel.get("note_content")}</p>*/}
-				<hr></hr>
 			</div>
 		)
 	}
