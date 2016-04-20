@@ -71,7 +71,7 @@ var MyNotesView = React.createClass({
 	render: function() {
 		return(
 			<div className="myNotesView">
-				<p className="noteBlurb">MY NOTES | "Share" your note with the community, or click "Print" to add that candidate to the Print List you can bring to the poll booth.</p>
+				<p className="noteBlurb">MY NOTES | Click "Share" to publish your note at "Public Notes". Click "Vote" to add that candidate to your handy Ballot Cheat Sheet.</p>
 				<hr></hr>
 					<MyNotesScroll deleteNote={this._deleteMyNote} noteColl={this.props.noteColl} />
 			</div>
@@ -104,10 +104,9 @@ var MyNotesScroll = React.createClass({
 var MyNote = React.createClass({
 
 	_printMyNote: function(event){
-		//create trigger for a custom event
 		var noteModel = this.props.note
 		//console.log("triggering modify print list")
-		BBFire.Events.trigger("modifyPrintList", noteModel, event.target.checked) //<= last argument is the "payload"		
+		BBFire.Events.trigger("modifyPrintList", noteModel, event.target.checked) //<= last argument is the "payload"
 	},
 
 	_shareMyNote: function(event){
@@ -148,11 +147,11 @@ var MyNote = React.createClass({
 			styleObject.display = "none"
 		}
 
-		var checkedStatus
+		var shareCheckedStatus
 		if (!noteModel.get('is_shared')) {
-			checkedStatus = false
+			shareCheckedStatus = false
 		} else {
-			checkedStatus =  true
+			shareCheckedStatus =  true
 		}
 
 		return (
@@ -164,8 +163,8 @@ var MyNote = React.createClass({
 				<p><b>Name:</b> {noteModel.get("first_name")} {noteModel.get("last_name")}</p>
 				<p><b>Note:</b> {noteModel.get("note_content")}</p>	
 				<div className="myNotesButtons">
-					<label className="share">Share<input type="checkbox" checked={checkedStatus} onChange={this._shareMyNote}/></label>
-					<label className="print">Print<input type="checkbox" onChange={this._printMyNote}/></label>
+					<label className="share">Share<input type="checkbox" checked={shareCheckedStatus} onChange={this._shareMyNote}/></label>
+					<label className="print">Vote<input type="checkbox" onChange={this._printMyNote}/></label>
 					<button onClick={this._deleteNote.bind(this, noteModel)}>Delete</button>
 				</div>
 			</div>
@@ -180,7 +179,7 @@ var PrintView = React.createClass({
 		return(
 
 			<div className="printView">
-				<p className="printBlurb">PRINT LIST | Highlight your list of chosen candidates on this page, then right-click and select "Print".</p>
+				<p className="printBlurb">BALLOT CHEAT SHEET | Take your condensed list of chosen candidates to the polls: print this page and bring in to the booth, or review it on your mobile device while waiting in line.</p>
 				<hr></hr>
 				<PrintScroll notesArr={this.props.notesToPrint} />
 			</div>

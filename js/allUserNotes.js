@@ -32,13 +32,44 @@ var AllNotesContainer = React.createClass({
 
 var AllUserNotes = React.createClass({
 
-	render: function() {
+	_filterPubNotes: function(event) {
 		//console.log(this)
+		var self = this		
+		var filteredArr = self.state.pubColl.filter(function(model, searchedName){		
+			var lastName = model.get('last_name').toLowerCase()
+			var searchedName = event.target.value.toLowerCase()
+			var filteredResults = []
+			if (lastName.indexOf(searchedName) !== -1) {
+				filteredResults.push(model)
+				return filteredResults
+			}						
+		})
+		//console.log(filteredArr)
+		self.setState({
+			pubColl: filteredArr
+		})
+		
+		if (event.target.value === "") {
+			self.setState({
+			pubColl: this.props.pubColl
+		})
+		}
+	},
+
+	getInitialState: function() {
+		return {
+			pubColl: this.props.pubColl
+		}
+	},
+
+	render: function() {
+		//console.log(this.state)
 		return (
 			<div className="allNotesView">
 				<p className="publicBlurb">PUBLIC NOTES | See what other voters have to say about each candidate or proposition. </p>
+				<label>Filter notes by candidate's last name: <input placeholder="Enter last name" onChange={this._filterPubNotes}/></label>
 				<hr></hr>
-				<Scroll pubColl={this.props.pubColl} />
+				<Scroll pubColl={this.state.pubColl} />
 			</div>
 		)		
 	}
@@ -46,6 +77,7 @@ var AllUserNotes = React.createClass({
 
 var Scroll = React.createClass({
 
+	
 	_getPubNotesJsx: function(resultsArr) {
 		//console.log(resultsArr)
 		var jsxArr = []
@@ -57,9 +89,10 @@ var Scroll = React.createClass({
 	},
 
 	render: function() {
+		//console.log(this.props.pubColl)
 		return(
 			<div className="scroll">
-				{this._getPubNotesJsx(this.props.pubColl.models)}
+				{this._getPubNotesJsx(this.props.pubColl)}
 			</div>
 		)
 	}
